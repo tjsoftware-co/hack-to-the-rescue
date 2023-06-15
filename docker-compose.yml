@@ -1,0 +1,39 @@
+# This docker-compose file is designed for development purposes only
+version: '3'
+
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: local.Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/code
+
+  db:
+    restart: always
+    image: postgres:14.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data:Z
+      - postgres_data_backups:/backups:z
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: local.Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data: {}
+  postgres_data_backups: {}

@@ -1,0 +1,97 @@
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --light-grey: #b3b3b3;
+  --grey: #5c5c5c;
+  --light: #ecf6ff;
+  --line: #eaeaea;
+  --dark-blue: #172e50;
+  --light-blue: #2673b7;
+  --white: #ffffff;
+  --black: #212121;
+  --red: #c10000;
+  --green: #499f47;
+  --triada: #0093dd;
+  --triada-glassy: #97cbe563;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bg-core {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 83vh;
+
+  overflow: hidden;
+
+  z-index: -1;
+
+  &--taller {
+    height: 90vh;
+  }
+
+  .bg-core__bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 0 0 5rem 5rem;
+  }
+
+  .bg-core__placek {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    min-width: 1500px;
+    width: 70%;
+    object-fit: cover;
+  }
+
+  .bg-core__dots {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    min-width: 1500px;
+    width: 70%;
+    object-fit: cover;
+  }
+}
+
+.bg-substract {
+  position: absolute;
+  top: 83vh;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  object-fit: cover;
+}

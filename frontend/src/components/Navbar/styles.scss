@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem 4rem;
+
+  background-color: transparent;
+
+  z-index: 100;
+
+  .navbar__left-logs-container {
+    margin-right: auto;
+  }
+
+  .navbar__tabs {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .navbar__tab {
+      text-transform: none;
+      font-weight: 400;
+    }
+  }
+
+  .navbar__right-logs-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    margin-left: auto;
+
+    .navbar__triada-logo {
+      position: relative;
+      bottom: 1rem;
+    }
+  }
+}

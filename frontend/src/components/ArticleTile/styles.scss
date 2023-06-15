@@ -1,0 +1,128 @@
+.article-tile {
+  position: relative;
+
+  padding: 3rem 7.5rem 2rem;
+  max-width: 50rem;
+
+  font-family: "Jost", sans-serif;
+
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+
+  transition: background-color 0.2s ease;
+
+  .article-tile__indicator {
+    position: absolute;
+    top: 2.5rem;
+    left: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    font-weight: 500;
+
+    background-color: var(--white);
+    border-radius: 0.5rem;
+  }
+
+  .article-tile__toogle {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+
+    padding: 0.5rem 0.7rem;
+
+    font-size: 1.2rem;
+    color: var(--white);
+    background-color: var(--triada);
+
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    cursor: pointer;
+
+    svg {
+      transition: all 0.5s ease;
+    }
+  }
+
+  .article-tile__header {
+    display: flex;
+    gap: 0.75rem;
+
+    font-size: 0.875rem;
+
+    .article-tile__separator {
+      width: 2px;
+
+      background-color: var(--light-grey);
+    }
+
+    .article-tile__authors-text {
+      color: var(--light-grey);
+    }
+
+    .article-tile__authors {
+      flex-grow: 0;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .article-tile__title {
+    margin: 0.8rem 0;
+
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  .article-tile__content {
+    line-height: 1.5rem;
+    height: 4.5rem;
+    margin-bottom: 1rem;
+    overflow-y: hidden;
+
+    transition: all 0.5s ease;
+  }
+
+  .article-tile__link-container {
+    display: flex;
+    gap: 0.5rem;
+
+    .article-tile__link-label {
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .article-tile__source-link {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--triada);
+      }
+    }
+  }
+
+  &--expanded {
+    background-color: var(--white);
+
+    .article-tile__toogle svg {
+      transform: rotate(180deg);
+    }
+
+    .article-tile__content {
+      height: fit-content;
+      overflow-y: auto;
+    }
+  }
+}

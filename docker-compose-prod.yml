@@ -1,0 +1,46 @@
+# This docker-compose file is designed for development purposes only
+version: '3'
+
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/code
+
+  nginx:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/templates/default.conf.template:/etc/nginx/templates/default.conf.template
+      # - './frontend/src/assets/:/usr/share/nginx/html/assets'
+      - ./docker/letsencrypt:/etc/letsencrypt
+      - ./docker/certbot/data:/var/www/certbot
+    depends_on:
+      - backend
+    env_file:
+      - .env
+
+  # frontend:
+  #   build:
+  #     context: frontend
+  #     dockerfile: local.Dockerfile
+  #   ports:
+  #     - "5173:5173"
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+
+volumes:
+  postgres_data: {}
+  postgres_data_backups: {}
+

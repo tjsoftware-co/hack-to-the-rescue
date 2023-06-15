@@ -1,0 +1,40 @@
+.these-tile {
+  display: flex;
+  gap: 2rem;
+
+  padding: 2.5rem 3rem;
+  width: 50rem;
+  max-width: 50rem;
+
+  font-family: "Jost", sans-serif;
+
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--white);
+  }
+
+  .these-tile__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    font-weight: 500;
+
+    background-color: var(--white);
+    border-radius: 0.5rem;
+  }
+
+  .these-tile__content {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
